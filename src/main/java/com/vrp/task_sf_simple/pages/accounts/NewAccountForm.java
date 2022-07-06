@@ -10,9 +10,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static com.vrp.task_sf_simple.config.EnvironmentConfig.BASE_URL;
+
+
 public class NewAccountForm extends LoadablePage<NewAccountForm> {
     @FindBy(xpath = "//input[@id=//label[contains(.,'Account Name')]/@for]")
     private WebElement accountNameInput;
+    @FindBy(xpath = "//input[@id=//label[contains(.,'Phone')]/@for]")
+    private WebElement phoneInput;
     @FindBy(xpath = "//button[@title='Save']")
     private WebElement saveButton;
 
@@ -21,19 +26,35 @@ public class NewAccountForm extends LoadablePage<NewAccountForm> {
         PageFactory.initElements(driver, this);
     }
 
-    public void enterAccountName(String text) {
+    public NewAccountForm enterAccountName(String text) {
         new WebDriverWait(driver, Duration.ofSeconds(30))
                 .withMessage("Account Name input box is available.")
                 .until(ExpectedConditions.elementToBeClickable(accountNameInput));
         accountNameInput.click();
         accountNameInput.sendKeys(text);
-        //saveButton.click();
+        return this;
+    }
+
+    public NewAccountForm enterPhone(String text) {
+        new WebDriverWait(driver, Duration.ofSeconds(30))
+                .withMessage("Phone input box is available.")
+                .until(ExpectedConditions.elementToBeClickable(phoneInput));
+        phoneInput.click();
+        phoneInput.sendKeys(text);
+        return this;
+    }
+
+    public ViewAccountPage save() {
+        new WebDriverWait(driver, Duration.ofSeconds(30))
+                .withMessage("Save button is available.")
+                .until(ExpectedConditions.elementToBeClickable(saveButton));
+        saveButton.click();
+        return new ViewAccountPage(driver);
     }
 
     @Override
     protected void load() {
-        String baseUrl = System.getProperty("HOST");
-        driver.get(baseUrl + "lightning/o/Account/new");
+        driver.get(BASE_URL + "lightning/o/Account/new");
     }
 
     @Override

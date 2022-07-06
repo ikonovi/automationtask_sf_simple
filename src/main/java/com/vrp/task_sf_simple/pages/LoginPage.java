@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static com.vrp.task_sf_simple.config.EnvironmentConfig.BASE_URL;
+
 public class LoginPage extends LoadablePage<LoginPage> {
     @FindBy(name = "username")
     private WebElement usernameInput;
@@ -41,8 +43,7 @@ public class LoginPage extends LoadablePage<LoginPage> {
 
     @Override
     protected void load() {
-        String baseUrl = System.getProperty("HOST");
-        driver.get(baseUrl);
+        driver.get(BASE_URL);
     }
 
     @Override

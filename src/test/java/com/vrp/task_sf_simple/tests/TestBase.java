@@ -6,16 +6,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
 
 public class TestBase {
-    static String host;
-    static String userName;
-    static String password;
     static WebDriver driver;
 
     @BeforeAll
     static void initAll() {
-        host = System.getProperty("HOST");
-        userName = System.getProperty("USER");
-        password = System.getProperty("PWD");
         driver = WebDriverFactory.getWebDriver(BrowserType.valueOf("CHROME"));
     }
 }

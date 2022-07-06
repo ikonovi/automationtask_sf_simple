@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static com.vrp.task_sf_simple.config.EnvironmentConfig.BASE_URL;
+
 public class AccountsPage extends LoadablePage<AccountsPage> {
     @FindBy(xpath = "//li[@data-target-selection-name='sfdc:StandardButton.Account.New']")
     private WebElement newButton;
@@ -29,8 +31,7 @@ public class AccountsPage extends LoadablePage<AccountsPage> {
 
     @Override
     protected void load() {
-        String baseUrl = System.getProperty("HOST");
-        driver.get(baseUrl + "/lightning/o/Account/list");
+        driver.get(BASE_URL + "/lightning/o/Account/list");
     }
 
     @Override
