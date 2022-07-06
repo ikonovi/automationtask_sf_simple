@@ -9,13 +9,13 @@ public class TestBase {
     static String host;
     static String userName;
     static String password;
-    static WebDriver webDriver;
+    static WebDriver driver;
 
     @BeforeAll
     static void initAll() {
         host = System.getProperty("HOST");
         userName = System.getProperty("USER");
         password = System.getProperty("PWD");
-        webDriver = WebDriverFactory.getWebDriver(BrowserType.valueOf("CHROME"));
+        driver = WebDriverFactory.getWebDriver(BrowserType.valueOf("CHROME"));
     }
 }

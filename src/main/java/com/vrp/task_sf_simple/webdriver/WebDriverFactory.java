@@ -4,6 +4,9 @@ import org.openqa.selenium.WebDriver;
 
 public class WebDriverFactory {
 
+    private WebDriverFactory() {
+    }
+
     public static WebDriver getWebDriver(BrowserType type) {
         switch (type) {
             case CHROME:
@@ -13,7 +16,4 @@ public class WebDriverFactory {
                 throw new IllegalArgumentException("Incorrect web driver type");
         }
     }
-
-
-
 }
