@@ -1,4 +1,4 @@
-# Salesforce Automation Task - simple
+# Salesforce Automation Task
 
 ## Prerequisites
 
@@ -12,21 +12,25 @@
    Start IP Address = 0.0.0.0 and End IP Address = 255.255.255.255, 
 fill in Description field and click Save.
    
-A page with video on that - <https://roycon.com/how-to-bypass-login-verification-in-salesforce/>
+_You can watch Video on that - <https://roycon.com/how-to-bypass-login-verification-in-salesforce/>_
 
 ### Environment Prerequisites
-1. JDK 11
-2. Maven
-3. Google Chrome browser
-4. Chrome WebDriver
+- JDK 11 
+- Maven
+- Google Chrome browser
+- Chrome WebDriver
 
-### How to run tests
-In the commont line, navigate to the root of project and run the command
-`mvn clean test -DHOST=<URL path to SF Org> -DUSER=<username> -DPWD=<password>` 
-where values in the triangle brackets to be replaced with your data. 
+## How to run tests
+In the command line, navigate to the root of project and run the command 
+where values in the triangle brackets to be replaced with your data.
+```
+mvn clean test -DHOST=<URL path to SF Org> -DUSER=<username> -DPWD=<password>
+```
 
-For example
-`mvn clean test -DHOST=https://nonamecompany.my.salesforce.com -DUSER=user@force.com -DPWD=12345`
+For example,
+```
+mvn clean test -DHOST=https://nonamecompany.my.salesforce.com -DUSER=user@force.com -DPWD=12345
+```
 
 *By the way my passed Trailheads can be viewed at <https://trailblazer.me/id/kanavalau>*
 
