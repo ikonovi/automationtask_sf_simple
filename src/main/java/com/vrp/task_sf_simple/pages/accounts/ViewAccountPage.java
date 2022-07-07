@@ -39,9 +39,17 @@ public class ViewAccountPage extends LoadablePage<NewAccountForm> {
         return phone.getText();
     }
 
+    public EditAccountForm clickEdit() {
+        new WebDriverWait(driver, Duration.ofSeconds(15))
+                .withMessage("Edit button is clickable.")
+                .until(ExpectedConditions.elementToBeClickable(editButton));
+        editButton.click();
+        return new EditAccountForm(driver);
+    }
+
     @Override
     protected void load() {
-        //not implemented
+        // empty implementation
     }
 
     @Override

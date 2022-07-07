@@ -1,5 +1,6 @@
 package com.vrp.task_sf_simple.pages.accounts;
 
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -7,31 +8,41 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-import static com.vrp.task_sf_simple.config.EnvironmentConfig.BASE_URL;
+public class EditAccountForm extends AbstractAccountForm<EditAccountForm> {
 
-
-public class NewAccountForm extends AbstractAccountForm<NewAccountForm> {
-
-    public NewAccountForm(WebDriver driver) {
+    public EditAccountForm(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
 
-    public NewAccountForm enterAccountName(String text) {
+    @Override
+    protected void load() {
+        // empty implementation
+    }
+
+    public EditAccountForm editAccountName(String text) {
         new WebDriverWait(driver, Duration.ofSeconds(30))
                 .withMessage("Account Name input box is available.")
-                .until(ExpectedConditions.elementToBeClickable(accountNameInput));
+                .ignoring(ElementClickInterceptedException.class)
+                .until(driver -> {
+                    accountNameInput.click();
+                    return accountNameInput;
+                });
         accountNameInput.click();
-        accountNameInput.sendKeys(text);
+        clearAndType(accountNameInput, text);
         return this;
     }
 
-    public NewAccountForm enterPhone(String text) {
+    public EditAccountForm editPhone(String text) {
         new WebDriverWait(driver, Duration.ofSeconds(30))
                 .withMessage("Phone input box is available.")
-                .until(ExpectedConditions.elementToBeClickable(phoneInput));
+                .ignoring(ElementClickInterceptedException.class)
+                .until(driver -> {
+                    phoneInput.click();
+                    return phoneInput;
+                });
         phoneInput.click();
-        phoneInput.sendKeys(text);
+        clearAndType(phoneInput, text);
         return this;
     }
 
@@ -44,15 +55,10 @@ public class NewAccountForm extends AbstractAccountForm<NewAccountForm> {
     }
 
     @Override
-    protected void load() {
-        driver.get(BASE_URL + "lightning/o/Account/new");
-    }
-
-    @Override
     protected void isLoaded() throws Error {
         String currentUrl = driver.getCurrentUrl();
-        if (!currentUrl.contains("o/Account/new")) {
-            throw new AssertionError("New Account form is not loaded.");
+        if (!(currentUrl.contains("r/Account") && currentUrl.contains("/edit"))) {
+            throw new AssertionError("Edit Account form is not loaded.");
         }
     }
 }

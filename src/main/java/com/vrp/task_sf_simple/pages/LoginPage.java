@@ -36,11 +36,6 @@ public class LoginPage extends LoadablePage<LoginPage> {
         return new HomePage(driver);
     }
 
-    private void clearAndType(WebElement inputBox, String text) {
-        inputBox.clear();
-        inputBox.sendKeys(text);
-    }
-
     @Override
     protected void load() {
         driver.get(BASE_URL);
