@@ -15,14 +15,8 @@ import static com.vrp.task_sf_simple.config.EnvironmentConfig.USER_NAME;
 @DisplayName("Automation task SF Simple")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class AccountTest extends TestBase {
-    static Account testAccount;
     static AccountsPage accountsPage;
     static ViewAccountPage viewAccountPage;
-
-    @BeforeAll
-    static void createTestData() {
-        testAccount = Account.newBuilder().name("Olaf").phone("+4912345").build();
-    }
 
     @BeforeAll
     static void login() {
@@ -38,14 +32,17 @@ class AccountTest extends TestBase {
     @Order(1)
     @DisplayName("Test Case no. 1: Create an Account and verify it was created")
     void testCreate() {
+        Account account = Account.newBuilder().name("Olaf 1").phone("+49111111111").build();
+
         NewAccountForm newAccountForm = accountsPage.clickNew();
         viewAccountPage = newAccountForm
-                .enterAccountName(testAccount.getName())
-                .enterPhone(testAccount.getPhone())
+                .enterAccountName(account.getName())
+                .enterPhone(account.getPhone())
                 .save();
+
         Assertions.assertAll("Account has been created.",
-                () -> Assertions.assertEquals(testAccount.getName(), viewAccountPage.getAccount(), "Account Name"),
-                () -> Assertions.assertEquals(testAccount.getPhone(), viewAccountPage.getPhone(), "Phone")
+                () -> Assertions.assertEquals(account.getName(), viewAccountPage.getAccount(), "Account Name"),
+                () -> Assertions.assertEquals(account.getPhone(), viewAccountPage.getPhone(), "Phone")
         );
     }
 
@@ -53,22 +50,22 @@ class AccountTest extends TestBase {
     @Order(2)
     @DisplayName("Test Case no. 2: Edit an Account")
     void testEdit() {
-        EditAccountForm editAccountForm = viewAccountPage.clickEdit();
+        Account account = Account.newBuilder().name("Olaf 2").phone("+49222222222").build();
 
-        Account testAccount2 = Account.newBuilder().name("Olaf22222").phone("+49123452222").build();
-        editAccountForm
-                .editAccountName(testAccount2.getName())
-                .editPhone(testAccount2.getPhone())
+        EditAccountForm editAccountForm = viewAccountPage.clickEdit();
+        ViewAccountPage viewAccountPageUpdated = editAccountForm
+                .editAccountName(account.getName())
+                .editPhone(account.getPhone())
                 .save();
 
-        Assertions.assertAll("Account has been created.",
-                () -> Assertions.assertEquals(true, true)
+        Assertions.assertAll("Account has been updated.",
+                () -> Assertions.assertTrue(viewAccountPageUpdated.isAccountUpdatedTo(account.getName()), "Account Name"),
+                () -> Assertions.assertTrue(viewAccountPageUpdated.isPhoneUpdatedTo(account.getPhone()), "Phone")
         );
     }
 
-
     @AfterAll
     static void afterAll() {
-        //webDriver.quit();
+        driver.quit();
     }
 }

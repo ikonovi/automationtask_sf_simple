@@ -32,11 +32,32 @@ public class ViewAccountPage extends LoadablePage<NewAccountForm> {
         return accountName.getText();
     }
 
+    public boolean isAccountUpdatedTo(String text) {
+        try {
+            return new WebDriverWait(driver, Duration.ofSeconds(5))
+                    .withMessage("Wait till Account Name get updated to " + text)
+                    .until(driver -> getAccount().equals(text));
+        } catch (org.openqa.selenium.TimeoutException e) {
+            // log exemption message in here
+            return false;
+        }
+    }
+
     public String getPhone() {
         new WebDriverWait(driver, Duration.ofSeconds(15))
                 .withMessage("Phone number is displayed.")
                 .until(ExpectedConditions.elementToBeClickable(phone));
         return phone.getText();
+    }
+
+    public boolean isPhoneUpdatedTo(String text) {
+        try {
+            return new WebDriverWait(driver, Duration.ofSeconds(5))
+                    .withMessage("Wait till Phone get updated to " + text)
+                    .until(driver -> getPhone().equals(text));
+        } catch (org.openqa.selenium.TimeoutException e) {
+            return false;
+        }
     }
 
     public EditAccountForm clickEdit() {
