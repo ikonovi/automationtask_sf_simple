@@ -2,14 +2,14 @@ package com.vrp.task_sf_simple.utils;
 
 import java.nio.file.FileSystems;
 
-final public class FileSystemUtil {
+public final class FileSystemUtil {
     private FileSystemUtil() {
     }
 
     public static String getCurrentDirAbsolutePath() {
-        String currentPath = "";
+        String currentRelativePath = "";
         return FileSystems.getDefault()
-                .getPath(currentPath)
+                .getPath(currentRelativePath)
                 .toAbsolutePath()
                 .toString();
     }
