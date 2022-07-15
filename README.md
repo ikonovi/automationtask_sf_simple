@@ -2,6 +2,11 @@
 
 ## Prerequisites
 
+### Create Trial Salesforce Org
+1. Go to <http://test.salesforce.com>
+2. Use instructions on the page to create Free Trial Org in Salesforce
+
+
 ### Configure Salesforce Org to bypass login verification for the Test User
 1. Navigate to the Setup Menu.
 2. In the left-hand menu, navigate to Administration > Users > Users.
@@ -11,8 +16,7 @@
 6. On the "Login IP Ranges" page, set
    Start IP Address = 0.0.0.0 and End IP Address = 255.255.255.255, 
 fill in Description field and click Save.
-   
-_You can watch Video on that - <https://roycon.com/how-to-bypass-login-verification-in-salesforce/>_
+
 
 ### Environment Prerequisites
 - JDK 11 
