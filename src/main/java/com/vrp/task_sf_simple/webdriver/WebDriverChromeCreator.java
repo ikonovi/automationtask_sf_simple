@@ -14,11 +14,16 @@ public class WebDriverChromeCreator implements WebDriverCreator {
     }
 
     private ChromeOptions initChromeOptions() {
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-geolocation");
         options.addArguments("--incognito");
-        String userDataDir = "--user-data-dir=" + FileSystemUtil.getCurrentDirAbsolutePath() + "/chrome-test-profile";
-        options.addArguments(userDataDir);
+        options.addArguments(composeUserDataDir());
         return options;
+    }
+
+    private String composeUserDataDir() {
+        final String userDataDirName = "chrome-test-profile";
+        return  "--user-data-dir=" + FileSystemUtil.getCurrentDirAbsolutePath() + "/" + userDataDirName;
     }
 }
