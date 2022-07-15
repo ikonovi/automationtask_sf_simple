@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static com.vrp.task_sf_simple.config.EnvironmentConfig.BASE_URL;
+import static com.vrp.task_sf_simple.configs.SystemProperties.BASE_URL;
 
 public class LoginPage extends LoadablePage<LoginPage> {
     @FindBy(name = "username")

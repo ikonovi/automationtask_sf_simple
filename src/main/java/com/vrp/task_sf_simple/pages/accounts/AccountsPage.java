@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-import static com.vrp.task_sf_simple.config.EnvironmentConfig.BASE_URL;
+import static com.vrp.task_sf_simple.configs.SystemProperties.BASE_URL;
 
 public class AccountsPage extends LoadablePage<AccountsPage> {
     @FindBy(xpath = "//li[@data-target-selection-name='sfdc:StandardButton.Account.New']")

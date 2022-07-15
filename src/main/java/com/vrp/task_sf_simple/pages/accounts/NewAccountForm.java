@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-import static com.vrp.task_sf_simple.config.EnvironmentConfig.BASE_URL;
+import static com.vrp.task_sf_simple.configs.SystemProperties.BASE_URL;
 
 
 public class NewAccountForm extends AbstractAccountForm<NewAccountForm> {

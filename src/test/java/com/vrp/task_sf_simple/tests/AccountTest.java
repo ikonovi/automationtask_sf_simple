@@ -9,8 +9,8 @@ import com.vrp.task_sf_simple.pages.accounts.NewAccountForm;
 import com.vrp.task_sf_simple.pages.accounts.ViewAccountPage;
 import org.junit.jupiter.api.*;
 
-import static com.vrp.task_sf_simple.config.EnvironmentConfig.PASSWORD;
-import static com.vrp.task_sf_simple.config.EnvironmentConfig.USER_NAME;
+import static com.vrp.task_sf_simple.configs.SystemProperties.PASSWORD;
+import static com.vrp.task_sf_simple.configs.SystemProperties.USER_NAME;
 
 @DisplayName("Automation task SF Simple")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
