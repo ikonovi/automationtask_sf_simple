@@ -14,7 +14,6 @@ public class WebDriverChromeCreator implements WebDriverCreator {
     }
 
     private ChromeOptions initChromeOptions() {
-
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-geolocation");
         options.addArguments("--incognito");
@@ -24,6 +23,6 @@ public class WebDriverChromeCreator implements WebDriverCreator {
 
     private String composeUserDataDir() {
         final String userDataDirName = "chrome-test-profile";
-        return  "--user-data-dir=" + FileSystemUtil.getCurrentDirAbsolutePath() + "/" + userDataDirName;
+        return "--user-data-dir=" + FileSystemUtil.getCurrentDirAbsolutePath() + "/" + userDataDirName;
     }
 }
