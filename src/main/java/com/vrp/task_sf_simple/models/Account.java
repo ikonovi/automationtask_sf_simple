@@ -1,6 +1,7 @@
 package com.vrp.task_sf_simple.models;
 
 import java.util.Objects;
+import java.util.StringJoiner;
 
 public class Account {
     private String name;
@@ -48,5 +49,13 @@ public class Account {
     @Override
     public int hashCode() {
         return Objects.hash(name, phone);
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Account.class.getSimpleName() + "[", "]")
+                .add("name='" + name + "'")
+                .add("phone='" + phone + "'")
+                .toString();
     }
 }
