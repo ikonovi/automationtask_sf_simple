@@ -36,7 +36,7 @@ public class ViewAccountPage extends LoadablePage<NewAccountForm> {
         try {
             return new WebDriverWait(driver, Duration.ofSeconds(5))
                     .withMessage("Wait till Account Name get updated to " + text)
-                    .until(driver -> getAccount().equals(text));
+                    .until(driver -> accountName.getText().equals(text));
         } catch (org.openqa.selenium.TimeoutException e) {
             // log exemption message in here
             return false;
@@ -54,7 +54,7 @@ public class ViewAccountPage extends LoadablePage<NewAccountForm> {
         try {
             return new WebDriverWait(driver, Duration.ofSeconds(5))
                     .withMessage("Wait till Phone get updated to " + text)
-                    .until(driver -> getPhone().equals(text));
+                    .until(driver -> phone.getText().equals(text));
         } catch (org.openqa.selenium.TimeoutException e) {
             return false;
         }

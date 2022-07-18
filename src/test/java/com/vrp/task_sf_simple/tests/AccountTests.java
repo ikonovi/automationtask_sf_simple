@@ -14,7 +14,7 @@ import static com.vrp.task_sf_simple.configs.SystemProperties.USER_NAME;
 
 @DisplayName("Automation task SF Simple")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class AccountTest extends TestBase {
+class AccountTests extends TestBase {
     static AccountsPage accountsPage;
     static ViewAccountPage viewAccountPage;
 
