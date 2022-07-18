@@ -1,5 +1,6 @@
 package com.vrp.task_sf_simple.pages.accounts;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -17,6 +18,7 @@ public class NewAccountForm extends AbstractAccountForm<NewAccountForm> {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Enter Name")
     public NewAccountForm enterAccountName(String text) {
         new WebDriverWait(driver, Duration.ofSeconds(30))
                 .withMessage("Account Name input box is available.")
@@ -26,6 +28,7 @@ public class NewAccountForm extends AbstractAccountForm<NewAccountForm> {
         return this;
     }
 
+    @Step("Enter Phone")
     public NewAccountForm enterPhone(String text) {
         new WebDriverWait(driver, Duration.ofSeconds(30))
                 .withMessage("Phone input box is available.")
@@ -35,6 +38,7 @@ public class NewAccountForm extends AbstractAccountForm<NewAccountForm> {
         return this;
     }
 
+    @Step("Click Save")
     public ViewAccountPage save() {
         new WebDriverWait(driver, Duration.ofSeconds(30))
                 .withMessage("Save button is available.")

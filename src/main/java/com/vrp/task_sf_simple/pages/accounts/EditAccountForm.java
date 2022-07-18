@@ -1,5 +1,6 @@
 package com.vrp.task_sf_simple.pages.accounts;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -20,6 +21,7 @@ public class EditAccountForm extends AbstractAccountForm<EditAccountForm> {
         // empty implementation
     }
 
+    @Step("Edit Account")
     public EditAccountForm editAccountName(String text) {
         new WebDriverWait(driver, Duration.ofSeconds(30))
                 .withMessage("Account Name input box is available.")
@@ -33,6 +35,7 @@ public class EditAccountForm extends AbstractAccountForm<EditAccountForm> {
         return this;
     }
 
+    @Step("Edit Phone")
     public EditAccountForm editPhone(String text) {
         new WebDriverWait(driver, Duration.ofSeconds(30))
                 .withMessage("Phone input box is available.")
@@ -46,6 +49,7 @@ public class EditAccountForm extends AbstractAccountForm<EditAccountForm> {
         return this;
     }
 
+    @Step("Click Save")
     public ViewAccountPage save() {
         new WebDriverWait(driver, Duration.ofSeconds(30))
                 .withMessage("Save button is available.")

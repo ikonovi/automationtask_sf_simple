@@ -1,6 +1,7 @@
 package com.vrp.task_sf_simple.pages.accounts;
 
 import com.vrp.task_sf_simple.pages.LoadablePage;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,6 +22,7 @@ public class AccountsPage extends LoadablePage<AccountsPage> {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Click New")
     public NewAccountForm clickNew() {
         new WebDriverWait(driver, Duration.ofSeconds(30))
                 .withMessage("New button is available")

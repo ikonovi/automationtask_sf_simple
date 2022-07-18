@@ -14,10 +14,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <selenium.version>4.2.1</selenium.version>
         <junit.version>5.8.2</junit.version>
-        <allure.version>2.18.1</allure.version>
+        <allure-junit5.version>2.18.1</allure-junit5.version>
         <allure-maven.version>2.10.0</allure-maven.version>
         <log4j.version>2.17.2</log4j.version>
-        <aspectj.version>1.8.10</aspectj.version>
+        <aspectj.version>1.9.9.1</aspectj.version>
     </properties>
 
     <dependencies>
@@ -35,7 +35,7 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit5</artifactId>
-            <version>${allure.version}</version>
+            <version>${allure-junit5.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>

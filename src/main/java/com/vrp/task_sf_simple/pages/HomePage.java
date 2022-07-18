@@ -1,6 +1,7 @@
 package com.vrp.task_sf_simple.pages;
 
 import com.vrp.task_sf_simple.pages.accounts.AccountsPage;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,6 +22,7 @@ public class HomePage extends LoadablePage<HomePage> {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Click Account on the main menu bar")
     public AccountsPage clickAccountMainBarLabel() {
         new WebDriverWait(driver, Duration.ofSeconds(20))
                 .withMessage("Account Name input box is available.")
@@ -29,6 +31,7 @@ public class HomePage extends LoadablePage<HomePage> {
         return new AccountsPage(driver);
     }
 
+    @Step("Load Home page")
     @Override
     protected void load() {
         driver.get(BASE_URL + "/lightning/page/home");

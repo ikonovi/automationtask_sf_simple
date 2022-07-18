@@ -18,23 +18,13 @@ class AccountTests extends TestBase {
     static AccountsPage accountsPage;
     static ViewAccountPage viewAccountPage;
 
-    @BeforeAll
-    static void login() {
-        LoginPage loginPage = new LoginPage(driver).get();
-        HomePage homePage = loginPage
-                .enterUsername(USER_NAME)
-                .enterPassword(PASSWORD)
-                .clickLogin();
-        accountsPage = homePage.clickAccountMainBarLabel();
-    }
-
     @Test
     @Order(1)
     @DisplayName("Test Case no. 1: Create an Account and verify it was created")
     void testCreate() {
-        Account account = Account.newBuilder().name("Olaf 1").phone("+49111111111").build();
-
+        accountsPage = homePage.clickAccountMainBarLabel();
         NewAccountForm newAccountForm = accountsPage.clickNew();
+        Account account = Account.newBuilder().name("Olaf 1").phone("+49111111111").build();
         viewAccountPage = newAccountForm
                 .enterAccountName(account.getName())
                 .enterPhone(account.getPhone())
@@ -62,10 +52,5 @@ class AccountTests extends TestBase {
                 () -> Assertions.assertTrue(viewAccountPageUpdated.isAccountUpdatedTo(account.getName()), "Account Name"),
                 () -> Assertions.assertTrue(viewAccountPageUpdated.isPhoneUpdatedTo(account.getPhone()), "Phone")
         );
-    }
-
-    @AfterAll
-    static void afterAll() {
-        driver.quit();
     }
 }

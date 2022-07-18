@@ -1,6 +1,7 @@
 package com.vrp.task_sf_simple.pages.accounts;
 
 import com.vrp.task_sf_simple.pages.LoadablePage;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,6 +33,7 @@ public class ViewAccountPage extends LoadablePage<NewAccountForm> {
         return accountName.getText();
     }
 
+    @Step("Is Account updated to?")
     public boolean isAccountUpdatedTo(String text) {
         try {
             return new WebDriverWait(driver, Duration.ofSeconds(5))
@@ -50,6 +52,7 @@ public class ViewAccountPage extends LoadablePage<NewAccountForm> {
         return phone.getText();
     }
 
+    @Step("Is phone updated to?")
     public boolean isPhoneUpdatedTo(String text) {
         try {
             return new WebDriverWait(driver, Duration.ofSeconds(5))
@@ -60,6 +63,7 @@ public class ViewAccountPage extends LoadablePage<NewAccountForm> {
         }
     }
 
+    @Step("Click Edit")
     public EditAccountForm clickEdit() {
         new WebDriverWait(driver, Duration.ofSeconds(15))
                 .withMessage("Edit button is clickable.")

@@ -1,5 +1,6 @@
 package com.vrp.task_sf_simple.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,11 +22,13 @@ public class LoginPage extends LoadablePage<LoginPage> {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Enter username")
     public LoginPage enterUsername(String userName) {
         clearAndType(usernameInput, userName);
         return this;
     }
 
+    @Step("Enter password")
     public LoginPage enterPassword(String password) {
         clearAndType(passwordInput, password);
         return this;
@@ -36,6 +39,7 @@ public class LoginPage extends LoadablePage<LoginPage> {
         return new HomePage(driver);
     }
 
+    @Step("Load Login page")
     @Override
     protected void load() {
         driver.get(BASE_URL);
