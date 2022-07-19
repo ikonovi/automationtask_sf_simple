@@ -49,4 +49,11 @@ class AccountTests extends TestBase {
                 () -> Assertions.assertTrue(viewAccountPageUpdated.isPhoneUpdatedTo(account.getPhone()), "Phone")
         );
     }
+
+    @Test
+    @Order(3)
+    @DisplayName("Screenshot attachment in failed test")
+    void testScreenshotAttachmentInFailedTest() {
+        Assertions.fail("Intentionally failed test");
+    }
 }
