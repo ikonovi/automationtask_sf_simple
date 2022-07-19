@@ -1,22 +1,18 @@
 package com.vrp.task_sf_simple.tests;
 
 import com.vrp.task_sf_simple.models.Account;
-import com.vrp.task_sf_simple.pages.HomePage;
-import com.vrp.task_sf_simple.pages.LoginPage;
 import com.vrp.task_sf_simple.pages.accounts.AccountsPage;
 import com.vrp.task_sf_simple.pages.accounts.EditAccountForm;
 import com.vrp.task_sf_simple.pages.accounts.NewAccountForm;
 import com.vrp.task_sf_simple.pages.accounts.ViewAccountPage;
 import org.junit.jupiter.api.*;
 
-import static com.vrp.task_sf_simple.configs.SystemProperties.PASSWORD;
-import static com.vrp.task_sf_simple.configs.SystemProperties.USER_NAME;
 
 @DisplayName("Automation task SF Simple")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class AccountTests extends TestBase {
-    static AccountsPage accountsPage;
-    static ViewAccountPage viewAccountPage;
+    AccountsPage accountsPage;
+    ViewAccountPage viewAccountPage;
 
     @Test
     @Order(1)
