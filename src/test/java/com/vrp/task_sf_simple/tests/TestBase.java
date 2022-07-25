@@ -16,7 +16,7 @@ import static com.vrp.task_sf_simple.configs.SystemProperties.PASSWORD;
 import static com.vrp.task_sf_simple.configs.SystemProperties.USER_NAME;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class TestBase {
+public abstract class TestBase {
     protected WebDriver driver = WebDriverFactory.getWebDriver(BrowserType.valueOf("CHROME"));
     protected HomePage homePage;
 
